@@ -1,7 +1,7 @@
-from flask import render_template
+from flask import render_template, redirect, request
 from . import main 
 
-@app.route('/')
+@main.route('')
 def index():
 
     return render_template('index.html')
