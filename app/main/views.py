@@ -1,7 +1,12 @@
 from flask import render_template, redirect, request
 from . import main 
 
-@main.route('')
+@main.route('/')
 def index():
 
     return render_template('index.html')
+
+@main.route('/user/<name>')
+def profiles():
+
+    return render_template('profile.html')
