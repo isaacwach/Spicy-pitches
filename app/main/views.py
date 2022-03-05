@@ -7,6 +7,6 @@ def index():
     return render_template('index.html')
 
 @main.route('/user/<name>')
-def profiles():
+def profiles(name):
 
     return render_template('profile.html')
