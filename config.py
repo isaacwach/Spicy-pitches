@@ -4,9 +4,11 @@ load_dotenv()
 
 class Config:
 
-    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://ayzaq@localhost/pitches'
     SQLALCHEMY_TRACK_MODIFICATIONS=True
     SECRET_KEY=os.environ.get('SECRET_KEY')
+
+    @staticmethod
     def init_app(app):
         pass 
 
