@@ -8,10 +8,14 @@
     <title>Spicy Pitches</title>
 </head>
 <body>
+    
     <div class="container">
         {% block navbar %}
         {% include "navbar.html"%}
         {% endblock %}
+        {% block content%}
+        {% include "index.html"%}
+        {% endblock%}
     </div>
 
 
