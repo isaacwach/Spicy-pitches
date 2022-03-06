@@ -2,7 +2,8 @@ import os
 
 class Config:
 
-    SQLALCHEMY_DARABASE_URI=os.environ.get('DATABASE_URL')
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + db_name
+    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
     SECRET_KEY=os.environ.get('SECRET_KEY')
     def init_app(app):
         pass 
