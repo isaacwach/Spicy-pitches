@@ -1,5 +1,7 @@
 from flask import render_template, redirect, request, url_for
 from . import main 
+from flask_login import login_required
+from .. import db
 
 @main.route('/')
 def index():
@@ -9,4 +11,4 @@ def index():
     # education = Pitch.query.filter_by(category = 'Education').all()
 
     # return render_template('index.html', pitches=pitches, education=education, motivation=motivation, jokes=jokes)
-    return "Hellooooo"
+    return render_template ('index.html')

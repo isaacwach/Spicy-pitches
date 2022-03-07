@@ -4,7 +4,7 @@ load_dotenv()
 
 class Config:
 
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://ayzaq@localhost/pitches'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://postgres@localhost/pitches'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     SECRET_KEY=os.environ.get('SECRET_KEY')
 
