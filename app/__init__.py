@@ -6,6 +6,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 from flask_mail import Mail
 import os
+from flask_bootstrap import Bootstrap
 
 login_manager = LoginManager()
 login_manager.session_protection = 'strong'
@@ -31,6 +32,7 @@ def create_app(config_name):
     app.register_blueprint(main_blueprint)
     app.config['UPLOADS_DEFAULT_DEST']='app/static/photos'
     app.config['SQLALCHEMY_DATABASE_URI']='postgresql+psycopg2://ayzaq:zacs@localhost/pitches'
+    app.config['SECRET_KEY']='os.environ.get(SECRET_KEY)'
 
     login_manager.init_app(app)
     configure_uploads(app,photos)
