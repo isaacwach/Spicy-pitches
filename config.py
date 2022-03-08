@@ -4,9 +4,17 @@ load_dotenv()
 
 class Config:
 
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://postgres@localhost/pitches'
+    SQLALCHEMY_DATABASE_URI = os.environ.get('SQLALCHEMY_DATABASE')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     SECRET_KEY=os.environ.get('SECRET_KEY')
+
+    MAIL_USERNAME = os.environ.get("MAIL_USERNAME")
+    MAIL_PASSWORD = os.environ.get("MAIL_PASSWORD")
+    MAIL_PORT = 587
+    MAIL_USE_TLS = False
+    MAIL_USE_SSL = True
+    UPLOADED_PHOTOS_DEST ='app/static/photos'
+    MAIL_SERVER = 'smtp.googlegmail.com'
 
     @staticmethod
     def init_app(app):
@@ -20,5 +28,6 @@ class DevConfig(Config):
 
 config_options = {
     'development':DevConfig,
-    'Production':ProdConfig
+    'Production':ProdConfig,
+    'default':ProdConfig
 }

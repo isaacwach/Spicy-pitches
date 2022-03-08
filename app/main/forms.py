@@ -6,6 +6,10 @@ class ProfileUpdate(FlaskForm):
     profile_bio=TextAreaField('Tell us about yourself.', validators=[DataRequired()])
     submit=StringField('Save')
 
+class CommentForm(FlaskForm):
+    comment = TextAreaField('Leave a comment',validators=[Required()])
+    submit = SubmitField('Comment')
+
 class PitchForm(FlaskForm):
     title=TextField('Title', validators=[DataRequired()])
     category=TextField('Category', categories=[('Motivation', 'Motivation'), ('Jokes', 'Jokes'), ('Education', 'Education')], validators=[DataRequired()])
