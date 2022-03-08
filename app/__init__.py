@@ -22,8 +22,8 @@ def create_app(config_name):
     app= Flask(__name__)
 
     # Creating the app configurations
-    app.config.from_object(config_options[config_name])
-    config_name = os.getenv('FLASK_CONFIG') or 'default'
+    #app.config.from_object(config_options[config_name])
+   #config_name = os.getenv('FLASK_CONFIG') or 'default'
     from .auth import auth as authentication_blueprint
     from .main import main as main_blueprint
     # Registering the blueprint
