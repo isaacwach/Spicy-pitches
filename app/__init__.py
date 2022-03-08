@@ -12,6 +12,7 @@ login_manager = LoginManager()
 login_manager.session_protection = 'strong'
 login_manager.login_view = 'auth.login'
 
+bootstrap = Bootstrap()
 db=SQLAlchemy()
 mail=Mail()
 login_manager=LoginManager()
@@ -38,6 +39,7 @@ def create_app(config_name):
     configure_uploads(app,photos)
     db.init_app(app)
     mail.init_app(app)
+    bootstrap.init_app(app)
 
 
     return app 
