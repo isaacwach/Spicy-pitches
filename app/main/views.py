@@ -1,7 +1,9 @@
-from flask import render_template, redirect, request, url_for
+from flask import render_template, redirect, request, url_for, abort
 from . import main 
-from flask_login import login_required
-from .. import db
+from flask_login import login_required, current_user
+from .. import db,photos
+from .forms import ProfileUpdate,PitchForm,CommentForm
+from ..models import User,Pitch,Comment,Upvote,Downvote
 
 @main.route('/')
 def index():
@@ -12,7 +14,7 @@ def index():
 
     return render_template('index.html', pitches=pitches, education=education, motivation=motivation, jokes=jokes)
     # return render_template ('index.html')
-    return "helloooo"
+    #return "helloooo"
 
 @main.route('/create_new', methods = ['POST','GET'])
 @login_required

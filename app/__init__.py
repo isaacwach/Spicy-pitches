@@ -1,7 +1,7 @@
 from flask import Flask
 from config import DevConfig
 from config import config_options
-from flask_uploads import IMAGES, UploadSet, configure_uploads
+from flask_uploads import IMAGES, UploadSet,configure_uploads
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 from flask_mail import Mail
@@ -29,6 +29,8 @@ def create_app(config_name):
     # Registering the blueprint
     app.register_blueprint(authentication_blueprint)
     app.register_blueprint(main_blueprint)
+    app.config['UPLOADS_DEFAULT_DEST']='app/static/photos'
+    app.config['SQLALCHEMY_DATABASE_URI']='postgresql+psycopg2://ayzaq:zacs@localhost/pitches'
 
     login_manager.init_app(app)
     configure_uploads(app,photos)
