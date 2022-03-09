@@ -4,7 +4,7 @@ from wtforms.validators import DataRequired,Email,EqualTo
 from ..models import User
 
 class RegForm(FlaskForm):
-    email = StringField('Your Email Address', validators=[DataRequired(),Email()])
+    email = StringField('Enter Email Address', validators=[DataRequired(),Email()])
     username = StringField('Enter Your Username', validators=[DataRequired()])
     password = PasswordField('Password',validators = [DataRequired(), EqualTo('password_confirm',message = 'Passwords must match')])
     password_confirm = PasswordField('Confirm Passwords',validators = [DataRequired()])
@@ -12,11 +12,11 @@ class RegForm(FlaskForm):
 
     def validate_email(self,data_field):
         if User.query.filter_by(email = data_field.data).first():
-            raise ValidationError("The Email has already been taken!")
+            raise ValidationError("Email already in use")
     
     def validate_username(self, data_field):
         if User.query.filter_by(username = data_field.data).first():
-            raise ValidationError("The username has already been taken")
+            raise ValidationError("The username already taken")
 
 class LoginForm(FlaskForm):
     username = StringField('Username',validators=[DataRequired()])

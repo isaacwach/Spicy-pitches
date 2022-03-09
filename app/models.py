@@ -27,7 +27,7 @@ class User(db.Model):
     id = db.Column(db.Integer, primary_key = True)
     username = db.Column(db.String(100),nullable = False)
     email  = db.Column(db.String(100),nullable = False)
-    secure_password = db.Column(db.String(100),nullable = False)
+    secure_password = db.Column(db.String(200),nullable = False)
     bio = db.Column(db.String(100))
     profile_pic_path = db.Column(db.String())
     pitches = db.relationship('Pitch', backref='user', lazy='dynamic')
