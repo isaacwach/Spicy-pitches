@@ -4,7 +4,7 @@ from . import auth
 from ..models import User
 from .. import db
 from flask_login import login_user,login_required,logout_user
-from .forms import RegForm,LoginForm
+from .forms import RegistrationForm,LoginForm
 
 from ..email import mail_message
 
@@ -17,7 +17,7 @@ def signup():
         db.session.commit()
         mail_message("Welcome to Spicy pitches","email/welcome_user",user.email,user=user)
         return redirect(url_for('auth.login'))
-    return render_template('auth/signup.html', r_form = form)
+    return render_template('auth/signup.html', reg_form = form)
 
 @auth.route('/login', methods = ['GET','POST'])
 def login():

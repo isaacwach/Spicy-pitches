@@ -41,6 +41,8 @@ def create_app(config_name):
     mail.init_app(app)
     bootstrap.init_app(app)
 
+    with app.app_context():
+        db.create_all()
 
     return app 
 

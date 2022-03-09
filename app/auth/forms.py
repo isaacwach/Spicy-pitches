@@ -20,7 +20,7 @@ class RegistrationForm(FlaskForm):
             raise ValidationError("The username already taken")
 
 class LoginForm(FlaskForm):
-    username = StringField('Username',validators=[DataRequired()])
-    password = PasswordField('Password',validators=[DataRequired()])
+    username = StringField('Your Username',validators=[DataRequired()])
+    password = PasswordField('Your Password',validators=[DataRequired()])
     remember = BooleanField('Remember Me!')
     submit = SubmitField('Login')

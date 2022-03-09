@@ -3,6 +3,10 @@ from werkzeug.security import generate_password_hash,check_password_hash
 from flask_login import UserMixin, current_user
 from . import login_manager
 
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(int(user_id))
+
 class Pitch(db.Model):
     __tablename__ = 'pitches'
     id = db.Column(db.Integer, primary_key = True)
@@ -25,9 +29,9 @@ class Pitch(db.Model):
 class User(db.Model):
     __tablename__ = 'users'
     id = db.Column(db.Integer, primary_key = True)
-    username = db.Column(db.String(100),nullable = False)
-    email  = db.Column(db.String(100),nullable = False)
-    secure_password = db.Column(db.String(200),nullable = False)
+    username = db.Column(db.String(255), index = True, nullable = False)
+    email  = db.Column(db.String(100), unique = True, index = True, nullable = False)
+    secure_password = db.Column(db.String(300),nullable = False)
     bio = db.Column(db.String(100))
     profile_pic_path = db.Column(db.String())
     pitches = db.relationship('Pitch', backref='user', lazy='dynamic')
@@ -95,9 +99,7 @@ class Downvote(db.Model):
 
     def __repr__(self):
         return f'{self.user_id}:{self.pitch_id}'
-@login_manager.user_loader
-def load_user(user_id):
-    return User.query.get(user_id)
+
 
 class Comment(db.Model):
     __tablename__ = 'comments'
