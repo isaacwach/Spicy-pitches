@@ -15,7 +15,8 @@ def signup():
         user = User(email = form.email.data, username = form.username.data, password = form.password.data)
         db.session.add(user)
         db.session.commit()
-        mail_message("Welcome to Spicy pitches","email/welcome_user",user.email,user=user)
+        #print(user.email)
+        #mail_message("Welcome to Spicy pitches","email/welcome_user",user.email,user=user)
         return redirect(url_for('auth.login'))
     return render_template('auth/signup.html', reg_form = form)
 

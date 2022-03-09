@@ -15,3 +15,4 @@ class PitchForm(FlaskForm):
     title=TextAreaField('Title', validators=[DataRequired()])
     category=TextAreaField('Category', categories=[('Motivation', 'Motivation'), ('Jokes', 'Jokes'), ('Education', 'Education')], validators=[DataRequired()])
     post= TextAreaField('Enter pitch', validators=[DataRequired()])
+    submit=SubmitField('Pitch')

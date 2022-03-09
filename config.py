@@ -16,6 +16,7 @@ class Config:
     MAIL_USE_SSL = True
     
     MAIL_SERVER = 'smtp.googlegmail.com'
+    SENDER_EMAIL= 'ayzaqwashyra@gmail.com'
 
     @staticmethod
     def init_app(app):
