@@ -25,7 +25,7 @@ class ProdConfig(Config):
     SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
 
 class DevConfig(Config):
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://ayzaq:zacs@host.docker.internal/pitches'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://ayzaq:zacs@localhost/pitches'
     DEBUG = True
 
 config_options = {
