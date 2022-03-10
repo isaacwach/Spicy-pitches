@@ -4,7 +4,7 @@ load_dotenv()
 
 class Config:
 
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://ayzaq:zacs@localhost/pitches'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://ayzaq:zacs@localhost:5433/pitches'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     SECRET_KEY=os.environ.get('SECRET_KEY')
 
@@ -26,7 +26,7 @@ class ProdConfig(Config):
     SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
 
 class DevConfig(Config):
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://ayzaq:zacs@localhost/pitches'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://ayzaq:zacs@localhost:5433/pitches'
     DEBUG = True
 
 config_options = {
