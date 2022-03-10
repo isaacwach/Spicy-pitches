@@ -23,7 +23,7 @@ idna==3.3
 itsdangerous==2.1.0
 Jinja2==2.11.2
 Mako==1.1.6
-MarkupSafe==2.1.0
+MarkupSafe==1.1.0
 playlistfromsong==2.2.2
 psycopg2==2.9.3
 python-dotenv==0.19.2
