@@ -34,6 +34,7 @@ def create_app(config_name):
     app.config['UPLOADS_DEFAULT_DEST']='app/static/photos'
     app.config['SQLALCHEMY_DATABASE_URI']='postgresql+psycopg2://ayzaq:zacs@localhost/pitches'
     app.config['SECRET_KEY']='os.environ.get(SECRET_KEY)'
+    app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
     login_manager.init_app(app)
     configure_uploads(app,photos)
