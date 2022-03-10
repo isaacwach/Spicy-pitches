@@ -18,7 +18,7 @@ def signup():
         #print(user.email)
         #mail_message("Welcome to Spicy pitches","email/welcome_user",user.email,user=user)
         return redirect(url_for('main.index'))
-    return render_template('auth/signup.html', reg_form = form, notification=notification)
+    return render_template('auth/signup.html', reg_form = form)
 
 @auth.route('/login', methods = ['GET','POST'])
 def login():
