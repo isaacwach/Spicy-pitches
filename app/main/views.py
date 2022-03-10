@@ -19,17 +19,18 @@ def index():
 @main.route('/create_new', methods = ['POST','GET'])
 @login_required
 def new_pitch():
-    form = PitchForm()
+    form = PitchForm(request.form)
     if form.validate_on_submit():
         title = form.title.data
-        post = form.post.data
-        category = form.category.data
         user_id = current_user
+        category = form.category.data
+        post = form.post.data
+        
         new_pitch_object = Pitch(post=post,user_id=current_user._get_current_object().id,category=category,title=title)
         new_pitch_object.save_p()
         return redirect(url_for('main.index'))
         
-    return render_template('create_pitch.html', form = form)
+    return render_template('post_pitch.html', form = form)
 
 @main.route('/user/<name>')
 def profile(name):

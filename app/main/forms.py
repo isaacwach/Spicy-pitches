@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm 
-from wtforms import StringField, SelectField, TextAreaField, SubmitField
+from wtforms import StringField, SelectField, TextAreaField, SubmitField, SelectMultipleField
 from wtforms.validators import DataRequired, Email
 from ..models import User
 
@@ -13,6 +13,6 @@ class CommentForm(FlaskForm):
 
 class PitchForm(FlaskForm):
     title=TextAreaField('Title', validators=[DataRequired()])
-    category=TextAreaField('Category', categories=[('Motivation', 'Motivation'), ('Jokes', 'Jokes'), ('Education', 'Education')], validators=[DataRequired()])
-    post= TextAreaField('Enter pitch', validators=[DataRequired()])
-    submit=SubmitField('Pitch')
+    category=SelectMultipleField('Select Category', choices=[('Motivation', 'Motivation'), ('Jokes', 'Jokes'), ('Education', 'Education')], validators=[DataRequired()])
+    post= TextAreaField('Enter your pitch', validators=[DataRequired()])
+    submit=SubmitField('Create')

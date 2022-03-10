@@ -17,8 +17,9 @@ def signup():
         db.session.commit()
         #print(user.email)
         #mail_message("Welcome to Spicy pitches","email/welcome_user",user.email,user=user)
-        return redirect(url_for('auth.login'))
-    return render_template('auth/signup.html', reg_form = form)
+        return redirect(url_for('main.index'))
+        notification='Thank you for creating an account with us'
+    return render_template('auth/signup.html', reg_form = form, notification=notification)
 
 @auth.route('/login', methods = ['GET','POST'])
 def login():
