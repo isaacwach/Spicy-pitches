@@ -2,7 +2,7 @@
 ## By Isaac Wachira
 ## Description
 This application allows users to post one minute pitches. Also, it allows users who have signed up to login and commont, upvote or downvote for pitches in the application.
-![Landing page photo](https://github.com/isaacwach/zacs-news/blob/master/app/static/images/news-app.png)
+![Landing page photo](https://github.com/isaacwach/Spicy-pitches/blob/master/app/static/photos/pitches.png)
 ## Author information
 I am a full stack developer, with impeccable skills in web development, UI design, and problem solving skills using algorithms. Besides, i have knowlege in enterprise development, financial accounting and business management.
 ## Setup/Installation Requirements
